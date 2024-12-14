@@ -7,9 +7,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+	
     @Override
     public void start(Stage primaryStage) {
         try {
+        	
             // Load the FXML file
             FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScene.fxml"));
             Parent root = loader.load();

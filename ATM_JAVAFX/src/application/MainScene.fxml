@@ -8,9 +8,9 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="956.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="956.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneController">
    <children>
-      <AnchorPane layoutX="2.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="956.0" visible="false">
+      <AnchorPane id="welcome" fx:id="welcome" layoutX="2.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="956.0" visible="false">
          <children>
             <!-- TextFlow with Anchors -->
             <TextFlow layoutX="191.0" layoutY="69.0" AnchorPane.leftAnchor="191.0" AnchorPane.topAnchor="69.0">
@@ -27,10 +27,10 @@
                   <Image url="@images/insert.png" />
                </image>
             </ImageView>
-            <Button fx:id="insert_btn" layoutX="305.0" layoutY="204.0" mnemonicParsing="false" prefHeight="83.0" prefWidth="346.0" text="Insert Your Card" />
+            <Button fx:id="insert_btn" layoutX="305.0" layoutY="204.0" mnemonicParsing="false" onMouseClicked="#ouvrirPinVide" prefHeight="83.0" prefWidth="346.0" text="Insert Your Card" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="956.0" visible="false">
+      <AnchorPane id="enterpinVide" fx:id="enterpinVide" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="956.0" visible="false">
          <children>
             <ImageView fitHeight="149.0" fitWidth="269.0" layoutX="714.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -43,62 +43,62 @@
                   <Text style="-fx-fill: #74a026; -fx-font-family: 'Gagalin'; -fx-font-size: 60;" text="Your Pin" />
                </children>
             </TextFlow>
-            <ImageView fx:id="btn_1" fitHeight="150.0" fitWidth="200.0" layoutX="319.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btn_1" fitHeight="150.0" fitWidth="200.0" layoutX="319.0" layoutY="285.0" onMouseClicked="#taper1" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/1.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="btn_2" fitHeight="150.0" fitWidth="200.0" layoutX="414.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btn_2" fitHeight="150.0" fitWidth="200.0" layoutX="414.0" layoutY="285.0" onMouseClicked="#taper2" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/2.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="btn_3" fitHeight="150.0" fitWidth="200.0" layoutX="508.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btn_3" fitHeight="150.0" fitWidth="200.0" layoutX="508.0" layoutY="285.0" onMouseClicked="#taper3" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/3.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="btn_0" fitHeight="150.0" fitWidth="200.0" layoutX="414.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btn_0" fitHeight="150.0" fitWidth="200.0" layoutX="414.0" layoutY="500.0" onMouseClicked="#taper0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/0.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="btn_4" fitHeight="150.0" fitWidth="200.0" layoutX="319.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btn_4" fitHeight="150.0" fitWidth="200.0" layoutX="319.0" layoutY="354.0" onMouseClicked="#taper4" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/4.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="btn_5" fitHeight="150.0" fitWidth="200.0" layoutX="414.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btn_5" fitHeight="150.0" fitWidth="200.0" layoutX="414.0" layoutY="354.0" onMouseClicked="#taper5" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/5.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="btn_6" fitHeight="150.0" fitWidth="200.0" layoutX="508.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btn_6" fitHeight="150.0" fitWidth="200.0" layoutX="508.0" layoutY="354.0" onMouseClicked="#taper6" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/6.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="btn_7" fitHeight="150.0" fitWidth="200.0" layoutX="319.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btn_7" fitHeight="150.0" fitWidth="200.0" layoutX="319.0" layoutY="427.0" onMouseClicked="#taper7" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/7.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="btn_8" fitHeight="150.0" fitWidth="200.0" layoutX="414.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btn_8" fitHeight="150.0" fitWidth="200.0" layoutX="414.0" layoutY="427.0" onMouseClicked="#taper8" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/8.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="btn_9" fitHeight="150.0" fitWidth="200.0" layoutX="508.0" layoutY="427.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btn_9" fitHeight="150.0" fitWidth="200.0" layoutX="508.0" layoutY="427.0" onMouseClicked="#taper9" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/9.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="clear_btn" fitHeight="150.0" fitWidth="200.0" layoutX="319.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="clear_btn" fitHeight="150.0" fitWidth="200.0" layoutX="319.0" layoutY="500.0" onMouseClicked="#taperC" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/clear.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="run_btn" fitHeight="150.0" fitWidth="200.0" layoutX="508.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="run_btn" fitHeight="150.0" fitWidth="200.0" layoutX="508.0" layoutY="500.0" onMouseClicked="#play" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/run.png" />
                </image>
@@ -135,7 +135,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="956.0">
+      <AnchorPane id="menu" fx:id="menu" minHeight="-Infinity" minWidth="-Infinity" prefHeight="627.0" prefWidth="956.0">
          <children>
             <Text layoutX="412.0" layoutY="128.0" style="-fx-fill: #ffa900; -fx-font-family: 'Gagalin'; -fx-font-size: 60;" text="menu" />
             <ImageView fitHeight="149.0" fitWidth="269.0" layoutX="690.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -143,34 +143,34 @@
                   <Image url="@images/bank.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="250.0" layoutX="353.0" layoutY="190.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bchecksummary" fitHeight="150.0" fitWidth="250.0" layoutX="353.0" layoutY="190.0" onMouseClicked="#ovrirsummary" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/summary_btn.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="250.0" layoutX="603.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="250.0" layoutX="603.0" layoutY="331.0" onMouseClicked="#ovrirretrait" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/withdraw_btn.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="250.0" layoutX="103.0" layoutY="331.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="250.0" layoutX="103.0" layoutY="331.0" onMouseClicked="#ovrirdepot" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/deposit_btn.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="250.0" layoutX="353.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bcheckbalance" fitHeight="150.0" fitWidth="250.0" layoutX="353.0" layoutY="454.0" onMouseClicked="#ovrirbalance" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/balance_btn.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="90.0" fitWidth="177.0" layoutX="-6.0" layoutY="537.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="90.0" fitWidth="177.0" layoutX="-6.0" layoutY="537.0" onMouseClicked="#retourVersWelcomeMenu" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/eject_btn.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="956.0" visible="false">
+      <AnchorPane id="balance" fx:id="balance" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="956.0" visible="false">
          <children>
             <ImageView fitHeight="714.0" fitWidth="1081.0" layoutX="-63.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -198,12 +198,12 @@
                   <Image url="@images/balance_affiche.png" />
                </image>
             </ImageView>
-            <Text layoutX="329.0" layoutY="337.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: GAGALIN;" text="Your Balance Will Be Output Here" textAlignment="CENTER">
+            <Text fx:id="soldetxt" layoutX="329.0" layoutY="337.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: GAGALIN;" text="Your Balance Will Be Output Here" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
             </Text>
-            <ImageView fitHeight="72.0" fitWidth="151.0" layoutX="7.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="bretourDepuisBalance" fitHeight="72.0" fitWidth="151.0" layoutX="7.0" layoutY="66.0" onMouseClicked="#retourVersMenuBlance" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/previous_btn.png" />
                </image>

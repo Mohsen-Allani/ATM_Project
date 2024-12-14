@@ -37,7 +37,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 2); /* Soft shadow */
     -fx-alignment: center;          /* Center text in the button */
     -fx-background-radius: 30px;    /* Match border-radius for smoothness */
-    -fx-transition: all 0.3s ease;  /* Smooth transitions for hover effects */
+    -fx-transition: all 0.15s ease; /* Faster transitions */
 }
 
 /* Hover effect for the button */
@@ -47,5 +47,4 @@
     -fx-text-fill: #000000;         /* Text turns black on hover */
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 15, 0.7, 0, 4); /* Enhanced and larger shadow */
 }
-
 
