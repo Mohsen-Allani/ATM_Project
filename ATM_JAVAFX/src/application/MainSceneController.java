@@ -617,6 +617,7 @@ public class MainSceneController {
 		}		
 	}
 	public void retourDepotMenu(MouseEvent event) {
+		montantdepose.setText("");
 		depot.setVisible(false);
 		menu.setVisible(true);
 	}
@@ -687,6 +688,7 @@ public class MainSceneController {
 		}		
 	}
 	public void retourRetaitMenu(MouseEvent event) {
+		montantretire.setText(""); 
 		retrait.setVisible(false);
 		menu.setVisible(true);
 	}
