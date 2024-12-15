@@ -1,5 +1,15 @@
 package application;
 
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -9,6 +19,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Text;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class MainSceneController {
@@ -141,6 +153,14 @@ public class MainSceneController {
 	@FXML
 	private ImageView bretourDepuisBalance;
 	
+	@FXML
+	private TableView<Lecteur.Transaction> summary_table;
+	@FXML
+	private TableColumn<Lecteur.Transaction, Integer> id_col ;
+	@FXML
+	private TableColumn<Lecteur.Transaction, String> id_type;
+	@FXML
+	private TableColumn<Lecteur.Transaction, Integer> id_montant;
 	
 	/**********************************************Bouton de Welcome***********************************************/
 	//retour vers menu :
@@ -434,15 +454,16 @@ public class MainSceneController {
 	public void ovrirsummary(MouseEvent event) {
 		menu.setVisible(false);
 		summary.setVisible(true);
-		String[] his=lecteur.historique();
-		String msg="";
-		int i = 0;
-        while (his[i] != null) {
-            msg=msg+"\n"+his[i];
-            i++;
-        }
-        //si le msg.length()==0 alors on affiche :Transaction history is empty.\nNo transactions have been made.
-        //sionon on affiche msg 
+		Lecteur.Transaction[] his=lecteur.historique();
+		List<Lecteur.Transaction> filteredList = Arrays.stream(his)
+		        .filter(Objects::nonNull) 
+		        .collect(Collectors.toList());
+
+		ObservableList<Lecteur.Transaction> transactionList = FXCollections.observableArrayList(filteredList);
+		summary_table.setItems(transactionList);
+		id_col.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getid()).asObject());
+		id_type.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getType()));
+		id_montant.setCellValueFactory(cellData -> new SimpleIntegerProperty(cellData.getValue().getmontant()).asObject());
 	}
 	public void ovrirretrait(MouseEvent event) {
 		menu.setVisible(false);
@@ -669,38 +690,92 @@ public class MainSceneController {
 		retrait.setVisible(false);
 		menu.setVisible(true);
 	}
+	/*****************************************Summary****************************************************/
+	@FXML
+	private ImageView print_bn;
+	@FXML
+	private ImageView print_bn2;
+	@FXML
+	private ImageView retrunSmmMenu1;
+	@FXML
+	private ImageView retrunSmmMenu2;
+	@FXML
+	private ImageView retrunWlcomSum2;
+	@FXML
+	private ImageView retrunWlcomSum1;
+	// bouton de retour vers welcome
+	public void changerRetourWS1(MouseEvent event) {
+		retrunWlcomSum1.setVisible(false);
+		retrunWlcomSum2.setVisible(true);
+	}
+	public void changerRetourWS2(MouseEvent event) {
+		retrunWlcomSum2.setVisible(false);
+		retrunWlcomSum1.setVisible(true);
+	}
+	public void RetourWS(MouseEvent event) {
+		summary.setVisible(false);
+		welcome.setVisible(true);
+	}
+	// bouton de retour vers menu
+	public void changerRetourMS1(MouseEvent event) {
+		retrunSmmMenu1.setVisible(false);
+		retrunSmmMenu2.setVisible(true);
+	}
+	public void changerRetourMS2(MouseEvent event) {
+		retrunSmmMenu2.setVisible(false);
+		retrunSmmMenu1.setVisible(true);
+	}
+	public void RetourMS(MouseEvent event) {
+		summary.setVisible(false);
+		menu.setVisible(true);
+	}
+	// bouton de retour vers menu
+	public void changerPrint1(MouseEvent event) {
+		print_bn.setVisible(false);
+		print_bn2.setVisible(true);
+	}
+	public void changerPrint2(MouseEvent event) {
+		print_bn2.setVisible(false);
+		print_bn.setVisible(true);
+	}
+	public void Methode_print(MouseEvent event) {
+		pdf.PdfTransaction docu=new pdf.PdfTransaction();
+		Lecteur.Transaction[] his=lecteur.historique();
+		try {
+			docu.transaction(his);
+			showInfoDialog("PDF Created Successfully", "The PDF containing the transactions has been created successfully.");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	/*****************************************************************************************************************************/
 	///////////////////////////////////////////////verifier integer
 	private boolean isInteger(String input) {
         if (input == null || input.isEmpty()) {
-            return false; // Aucun texte ou valeur vide n'est pas un entier
+            return false; 
         }
         try {
-            Integer.parseInt(input); // Tente de convertir la chaîne en entier
-            return true; // Conversion réussie
+            Integer.parseInt(input); 
+            return true; 
         } catch (NumberFormatException e) {
-            return false; // Erreur de conversion
+            return false; 
         }
     }
 	///////////////////////////////////////////////Alert
 	private void showErrorDialog(String header, String content) {
-        // Créer une alerte de type erreur
         Alert alert = new Alert(AlertType.ERROR);
         alert.setTitle("Erreur");
-        alert.setHeaderText(header); // Titre secondaire de l'alerte
-        alert.setContentText(content); // Détails de l'erreur
-
-        // Afficher la boîte de dialogue
+        alert.setHeaderText(header); 
+        alert.setContentText(content); 
         alert.showAndWait();
     }
 	private void showInfoDialog(String header, String content) {
-	    // Créer une alerte de type information
+	    
 	    Alert alert = new Alert(AlertType.INFORMATION);
 	    alert.setTitle("Information");
-	    alert.setHeaderText(header); // Titre secondaire de l'alerte
-	    alert.setContentText(content); // Détails du message
-
-	    // Afficher la boîte de dialogue
+	    alert.setHeaderText(header); 
+	    alert.setContentText(content);
 	    alert.showAndWait();
 	}	
 }

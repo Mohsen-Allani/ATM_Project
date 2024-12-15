@@ -52,5 +52,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/JCDK/java_card_kit-2_2_2/lib/apduio.jar"/>
+	<classpathentry kind="lib" path="D:/logiciels/iText/bouncy-castle-connector-8.0.3.jar"/>
+	<classpathentry kind="lib" path="D:/logiciels/iText/commons-8.0.3.jar"/>
+	<classpathentry kind="lib" path="D:/logiciels/iText/io-8.0.3.jar"/>
+	<classpathentry kind="lib" path="D:/logiciels/iText/kernel-8.0.3.jar"/>
+	<classpathentry kind="lib" path="D:/logiciels/iText/layout-8.0.3.jar"/>
+	<classpathentry kind="lib" path="D:/logiciels/iText/slf4j-api-1.7.36.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

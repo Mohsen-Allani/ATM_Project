@@ -11,8 +11,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-
-<AnchorPane fx:id="background" prefHeight="633.0" prefWidth="956.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneController">
+<AnchorPane fx:id="background" prefHeight="633.0" prefWidth="956.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneController">
    <children>
       <AnchorPane id="welcome" fx:id="welcome" layoutX="2.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="956.0">
          <children>
@@ -500,7 +499,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="633.0" prefWidth="956.0" visible="false">
+      <AnchorPane fx:id="summary" prefHeight="633.0" prefWidth="956.0" visible="false">
          <children>
             <ImageView fitHeight="150.0" fitWidth="198.0" layoutX="778.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -510,37 +509,37 @@
             <TableView fx:id="summary_table" layoutX="29.0" layoutY="183.0" prefHeight="338.0" prefWidth="900.0">
               <columns>
                 <TableColumn fx:id="id_col" prefWidth="300.0" text="ID" />
-                <TableColumn prefWidth="300.0" text="Transaction" />
-                  <TableColumn prefWidth="300.0" text="Amount" />
+                <TableColumn fx:id="id_type" prefWidth="300.0" text="Transaction" />
+                  <TableColumn fx:id="id_montant" prefWidth="300.0" text="Amount" />
               </columns>
             </TableView>
             <Text layoutX="389.0" layoutY="113.0" style="-fx-fill: #ffa900; -fx-font-family: 'Gagalin'; -fx-font-size: 60;" text="SUMMARY" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="407.0" layoutY="542.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="print_bn" fitHeight="150.0" fitWidth="200.0" layoutX="407.0" layoutY="542.0" onMouseEntered="#changerPrint1" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/print_btn.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="407.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="print_bn2" fitHeight="150.0" fitWidth="200.0" layoutX="407.0" layoutY="550.0" onMouseClicked="#Methode_print" onMouseExited="#changerPrint2" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@images/print_btn2.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="90.0" fitWidth="177.0" layoutX="7.0" layoutY="537.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="retrunWlcomSum1" fitHeight="90.0" fitWidth="177.0" layoutX="7.0" layoutY="537.0" onMouseEntered="#changerRetourWS1" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/eject_btn.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="90.0" fitWidth="177.0" layoutX="7.0" layoutY="537.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="retrunWlcomSum2" fitHeight="90.0" fitWidth="177.0" layoutX="7.0" layoutY="537.0" onMouseClicked="#RetourWS" onMouseExited="#changerRetourWS2" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@images/eject_btn2.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="69.0" layoutX="27.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="retrunSmmMenu1" fitHeight="60.0" fitWidth="69.0" layoutX="27.0" layoutY="20.0" onMouseEntered="#changerRetourMS1" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/previous_btn.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="60.0" fitWidth="69.0" layoutX="27.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="retrunSmmMenu2" fitHeight="60.0" fitWidth="69.0" layoutX="27.0" layoutY="20.0" onMouseClicked="#RetourMS" onMouseExited="#changerRetourMS2" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@images/previous_btn2.png" />
                </image>

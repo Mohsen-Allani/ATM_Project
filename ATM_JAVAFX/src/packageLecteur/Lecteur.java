@@ -225,8 +225,28 @@ public class Lecteur {
             }
         }
     }
+    
+    public class Transaction {
+        String type;
+        int montant;
+        int ID;
+        public Transaction(String t,int m,int i) {
+            this.type = t;
+            this.montant = m;
+            this.ID = i; 
+        }
+        public String getType() {
+        	return type;
+        }
+        public int getid() {
+        	return ID;
+        }
+        public int getmontant() {
+        	return montant;
+        }
+    }
 
-    public String[] historique() {
+    public Transaction[] historique() {
         Apdu apdu = new Apdu();
         apdu.command[Apdu.CLA] = CLA_MONAPPLET;
         apdu.command[Apdu.P1] = 0x00;
@@ -243,12 +263,10 @@ public class Lecteur {
         }
         if (apdu.getStatus() != 0x9000) {
         } else {
-            String[] his = new String[10];
+        	Transaction[] his = new Transaction[10];
             int offset = 0;
-            String msg = "";
             int i = 0;
             if (apdu.dataOut == null || apdu.dataOut.length == 0) {
-                his[0] = "Aucune transaction trouvée.";
                 return his;
             }
             while (offset < apdu.dataOut.length) {
@@ -266,8 +284,8 @@ public class Lecteur {
                 }
                 short montant = (short) (((apdu.dataOut[offset] & 0xFF) << 8) | (apdu.dataOut[offset + 1] & 0xFF));
                 offset += 2;
-                msg = "Transaction ID : " + id + "\nType : " + type + "\nMontant : " + montant + "\n-------------------------";
-                his[i] = msg;
+                Transaction trans=new Transaction(type,montant,id);
+                his[i] = trans;
                 i++;
             }
             return his;
