@@ -40,6 +40,8 @@ public class MainSceneController {
 	private AnchorPane retrait;
 	@FXML
 	private AnchorPane summary;
+	@FXML
+	private AnchorPane accessDenied;
 	
 	//contenu welcome
 	@FXML
@@ -405,7 +407,7 @@ public class MainSceneController {
 					showErrorDialog("Invalid PIN", "You have exceeded the maximum number of attempts.\nThe card will be retained by the reader.");
 					restart();
 					enterpinVide.setVisible(false);
-					welcome.setVisible(true);
+					accessDenied.setVisible(true);
 					conteur=3;	
 				}
 				else {
@@ -414,6 +416,10 @@ public class MainSceneController {
 				}			
 			}
 		}	
+	}
+	public void DeniedVersWelcome(MouseEvent event) {
+		accessDenied.setVisible(false);
+		welcome.setVisible(true);
 	}
 	
 	/********************************************Bouton du menu*****************************************************/
@@ -696,6 +702,5 @@ public class MainSceneController {
 
 	    // Afficher la boîte de dialogue
 	    alert.showAndWait();
-	}
-	
+	}	
 }
